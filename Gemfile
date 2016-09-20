@@ -24,7 +24,10 @@ end
 group :development, :test do
   gem "minitest-rails-capybara"
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'pry-rails'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock'
 end
