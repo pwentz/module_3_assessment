@@ -12,5 +12,6 @@ RSpec.describe 'Request individual item by id', type: :request do
     expect(response.content_type).to eq('application/json')
     expect(returned_item['name']).to eq(item_one.name)
     expect(returned_item['created_at']).to be_falsey
+    expect(returned_item['updated_at']).to be_falsey
   end
 end

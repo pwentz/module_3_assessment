@@ -12,5 +12,6 @@ RSpec.describe 'Request all items', type: :request do
     expect(response.content_type).to eq('application/json')
     expect(returned_items.first['name']).to eq(item_one.name)
     expect(returned_items.first['created_at']).to be_falsey
+    expect(returned_items.first['update_at']).to be_falsey
   end
 end
