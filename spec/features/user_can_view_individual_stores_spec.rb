@@ -23,6 +23,20 @@ RSpec.describe 'User can visit individual stores', type: :feature do
 
     VCR.use_cassette('best_buy_store_retrieval#2740') do
       click_link 'Best Buy Mobile - Cherry Creek Shopping Center'
+
+      expect(current_path).to eq('/stores/2740')
+
+      expect(page).to have_content('Best Buy Mobile - Cherry Creek Shopping Center')
+      expect(page).to have_content('Mobile')
+      expect(page).to have_content('3000 East First Ave, Denver')
+      expect(page).to have_content('CO, 80206')
+      expect(page).to have_content('Mon: 10am-9pm')
+      expect(page).to have_content('Tue: 10am-9pm')
+      expect(page).to have_content('Wed: 10am-9pm')
+      expect(page).to have_content('Thurs: 10am-9pm')
+      expect(page).to have_content('Fri: 10am-9pm')
+      expect(page).to have_content('Sat: 10am-9pm')
+      expect(page).to have_content('Sun: 11am-6pm')
     end
   end
 end

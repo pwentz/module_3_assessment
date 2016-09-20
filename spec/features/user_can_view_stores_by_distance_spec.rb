@@ -10,7 +10,7 @@ require 'rails_helper'
 
 RSpec.describe 'User can search for stores by distance', type: :feature do
   scenario 'they search via zip code and receive stores as json' do
-    VCR.use_cassette('best_buy_store_search#80202') do
+    VCR.use_cassette('best_buy_feature_search#80202') do
       visit '/'
 
       fill_in 'query', with: '80202'
