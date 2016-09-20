@@ -20,9 +20,11 @@
         <a href="/orders">Orders</a>
       </li>
       <li>
-        <%= form_for '/search' do |f| %>
-          <%= f.text_field 'query' %>
-          <%= f.button 'Submit', method: 'GET' %>
+        <%= form_tag :search, method: :get, class: 'form-inline' do %>
+          <div class='form-group search-field'>
+            <%= text_field_tag :query, 'Search by zip...', class: 'form-control '%>
+            <%= submit_tag 'Locate', class: 'btn btn-primary' %>
+          </div>
         <% end %>
       </li>
     </ul>
