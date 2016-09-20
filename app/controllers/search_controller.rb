@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @stores = StoreFinder.fetch_stores(params['query'])
+    @response = StoreFinder.fetch_stores(params['query'])
+    @stores = Store.create_stores(@response['stores'])
   end
 end

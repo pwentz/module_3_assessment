@@ -1,1 +1,22 @@
-<h5>Hey!</h5>
+<h4><%= @response['total'] %> total stores</h4>
+<ul>
+  <% @stores.each do |store| %>
+    <li id='store-<%= store.id %>'>Name: <%= store.name %>
+      <ul>
+        <li>
+          City: <%= store.city %>
+        </li>
+        <li>
+          Distance: <%= store.distance %> miles
+        </li>
+        <li>
+          Phone Number: <%= store.phone %>
+        </li>
+        <li>
+          Store Type: <%= store.type %>
+        </li>
+      </ul>
+    </li>
+  <% end %>
+</ul>
+
