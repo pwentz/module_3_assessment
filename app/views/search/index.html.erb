@@ -1,4 +1,4 @@
-<h4><%= @response['total'] %> total stores</h4>
+<h4><%= @raw_response_data['total'] %> total stores</h4>
 <ul>
   <% @stores.each do |store| %>
     <li id='store-<%= store.storeId %>'>

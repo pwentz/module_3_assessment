@@ -12,7 +12,7 @@ class StoreFinder
     @service ||= BestBuyStoreSearchService.new
   end
 
-  def self.fetch_stores(search_query)
-    new(search_query).fetch_stores
+  def self.where(search_query)
+    new(search_query[:name]).fetch_stores
   end
 end

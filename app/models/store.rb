@@ -1,6 +1,5 @@
 class Store < OpenStruct
-
-  def self.create_stores(stores)
+  def self.create(stores)
     stores.map do |store|
       new(store)
     end

@@ -2,11 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Delete individual item by id', type: :request do
   it 'returns a 204 and removes the item from the database' do
-    item_one = Item.create(name: Faker::Commerce.product_name, description: Faker::Lorem.sentence, created_at: Time.now)
+    item_one = FactoryGirl.create(:item)
 
-    delete "/api/v1/items/#{item_one.id}.json"
+    expect{
+      delete "/api/v1/items/#{item_one.id}.json"
+    }.to change{Item.count}.from(1).to(0)
 
     expect(response).to have_http_status(204)
-    expect(Item.all).to be_empty
   end
 end

@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Request individual item by id', type: :request do
   it 'returns the requested item in json' do
-    item_one = Item.create(name: Faker::Commerce.product_name, description: Faker::Lorem.sentence, created_at: Time.now)
-    item_two = Item.create(name: Faker::Commerce.product_name, description: Faker::Lorem.sentence, created_at: Time.now)
+    item_one = FactoryGirl.create(:item)
     get "/api/v1/items/#{item_one.id}.json"
 
     returned_item = JSON.parse(response.body)

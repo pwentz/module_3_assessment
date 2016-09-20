@@ -1,6 +1,9 @@
 class SearchController < ApplicationController
   def index
-    @response = StoreFinder.fetch_stores(params['query'])
-    @stores = Store.create_stores(@response['stores'])
+    # Included response var since user story wanted top
+    # message to display, yet still had to make objects from
+    # response['stores']
+    @raw_response_data = StoreFinder.where(name: params['query'])
+    @stores = Store.create(@raw_response_data['stores'])
   end
 end

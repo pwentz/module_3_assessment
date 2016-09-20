@@ -4,16 +4,16 @@ class StoreRetriever
     @store_id = store_id
   end
 
-  def get_store
+  def find_by
     raw_store_data = service.find_store_hours_by_id(store_id)
-    Store.create_stores(raw_store_data)
+    Store.create(raw_store_data)
   end
 
   def service
     @service ||= BestBuyStoreRetrievalService.new
   end
 
-  def self.get_store(store_id)
-    new(store_id).get_store
+  def self.find_by(store_id)
+    new(store_id).find_by.first
   end
 end
