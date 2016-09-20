@@ -1,7 +1,8 @@
 <h4><%= @response['total'] %> total stores</h4>
 <ul>
   <% @stores.each do |store| %>
-    <li id='store-<%= store.id %>'>Name: <%= store.name %>
+    <li id='store-<%= store.id %>'>
+      Name: <%= link_to store.name, store_path(store.id) %>
       <ul>
         <li>
           City: <%= store.city %>

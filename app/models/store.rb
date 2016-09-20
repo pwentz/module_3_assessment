@@ -6,8 +6,8 @@ class Store
               :type,
               :id
 
-  def initialize(store, id)
-    @id = id
+  def initialize(store)
+    @id = store['storeId']
     @name = store['longName']
     @city = store['city']
     @distance = store['distance']
@@ -16,9 +16,8 @@ class Store
   end
 
   def self.create_stores(stores)
-    store_id = 0
     stores.map do |store|
-      new(store, store_id += 1)
+      new(store)
     end
   end
 end

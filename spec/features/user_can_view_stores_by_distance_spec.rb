@@ -18,7 +18,7 @@ RSpec.describe 'User can search for stores by distance', type: :feature do
 
       expect(page).to have_content('17 total stores')
 
-      within('#store-1') do
+      within('#store-2740') do
         expect(page).to have_content('Name: Best Buy Mobile - Cherry Creek Shopping Center')
         expect(page).to have_content('City: Denver')
         expect(page).to have_content('Distance: 3.25 miles')
