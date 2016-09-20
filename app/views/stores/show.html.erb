@@ -1,0 +1,12 @@
+<h1><%= @store.longName %></h1>
+<h3><%= @store.storeType %></h3>
+<p><%= @store.address %>, <%= @store.city %></p>
+<p><%= @store.region %>, <%= @store.postalCode %></p>
+
+<ul>
+  <% @store.hoursAmPm.split(';').each do |weekday| %>
+    <li>
+      <%= weekday.strip %>
+    </li>
+  <% end %>
+</ul>

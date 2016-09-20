@@ -1,11 +1,12 @@
 class StoreRetriever
-  attr_reader: :store_id
+  attr_reader :store_id
   def initialize(store_id)
     @store_id = store_id
   end
 
   def get_store
-    service.find_store_hours_by_id(store_id)
+    raw_store_data = service.find_store_hours_by_id(store_id)
+    Store.create_stores(raw_store_data)
   end
 
   def service
