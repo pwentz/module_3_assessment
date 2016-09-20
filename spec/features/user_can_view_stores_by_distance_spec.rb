@@ -10,6 +10,17 @@ require 'rails_helper'
 
 RSpec.describe 'User can search for stores by distance', type: :feature do
   scenario 'they search via zip code and receive stores as json' do
+    visit '/'
 
+    fill_in 'query', with: '80202'
+    click_on 'Locate'
+
+    within('#store-1') do
+      expect(page).to have_content('Name: Best Buy Mobile - Cherry Creek Shopping Center')
+      expect(page).to have_content('City: Denver')
+      expect(page).to have_content('Distance: 3.25 miles')
+      expect(page).to have_content('Phone Number: 303-270-9189')
+      expect(page).to have_content('Store Type: Mobile')
+    end
   end
 end

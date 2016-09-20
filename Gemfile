@@ -25,6 +25,7 @@ group :development, :test do
   gem "minitest-rails-capybara"
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'launchy'
   gem 'pry-rails'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
